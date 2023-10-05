@@ -10,12 +10,12 @@
 
         public Response(object? body, string message, bool status)
         {
-            Body = body;
+            Items = body;
             Message = message;
             Status = status;
         }
 
-        public object? Body { get; set; }
+        public object? Items { get; set; }
         public string Message { get; set; }
         public bool Status { get; set; }
     }

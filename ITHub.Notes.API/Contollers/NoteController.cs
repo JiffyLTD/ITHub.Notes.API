@@ -44,7 +44,7 @@ namespace ITHub.Notes.API.Contollers
         }
 
         [HttpPost("note")]
-        public async Task<IResult> Create(NoteDtoToCreate noteDto)
+        public async Task<IResult> Create(NoteCreateDto noteDto)
         {
             var result = await _noteService.CreateAsync(noteDto);
 
@@ -57,7 +57,7 @@ namespace ITHub.Notes.API.Contollers
         }
 
         [HttpPut("note")]
-        public async Task<IResult> Update(NoteDtoToUpdate noteDto)
+        public async Task<IResult> Update(NoteUpdateDto noteDto)
         {
             var result = await _noteService.UpdateAsync(noteDto);
 

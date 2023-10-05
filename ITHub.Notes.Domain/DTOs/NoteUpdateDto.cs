@@ -1,15 +1,17 @@
 ﻿namespace ITHub.Notes.Domain.DTOs
 {
-    public class NoteDtoToCreate
+    public class NoteUpdateDto
     {
-        public NoteDtoToCreate() { }
+        public NoteUpdateDto() { }
 
-        public NoteDtoToCreate(string? title, string? content)
+        public NoteUpdateDto(Guid id, string? title, string? content)
         {
+            ID = id;
             Title = title;
             Content = content;
         }
 
+        public Guid? ID { get; set; }
         public string? Title { get; set; }
         public string? Content { get; set; }
     }

@@ -7,8 +7,8 @@ namespace ITHub.Notes.Services.Interfaces
     {
         public Task<Response> GetAllAsync();
         public Task<Response> GetByIdAsync(Guid id);
-        public Task<Response> CreateAsync(NoteDtoToCreate noteDto);
-        public Task<Response> UpdateAsync(NoteDtoToUpdate noteDto);
+        public Task<Response> CreateAsync(NoteCreateDto noteDto);
+        public Task<Response> UpdateAsync(NoteUpdateDto noteDto);
         public Task<Response> DeleteAsync(Note note);
     }
 }

@@ -15,7 +15,7 @@ namespace ITHub.Notes.Services.Services
             _db = db;
         }
 
-        public async Task<Response> CreateAsync(NoteDtoToCreate noteDto)
+        public async Task<Response> CreateAsync(NoteCreateDto noteDto)
         {
             try
             {
@@ -92,7 +92,7 @@ namespace ITHub.Notes.Services.Services
             }
         }
 
-        public async Task<Response> UpdateAsync(NoteDtoToUpdate noteDto)
+        public async Task<Response> UpdateAsync(NoteUpdateDto noteDto)
         {
             try
             {
