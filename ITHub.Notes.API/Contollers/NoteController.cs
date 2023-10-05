@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ITHub.Notes.API.Contollers
 {
-    [Route("api/1")]
+    [Route("api/v1")]
     [ApiController]
     public class NoteController : ControllerBase
     {
