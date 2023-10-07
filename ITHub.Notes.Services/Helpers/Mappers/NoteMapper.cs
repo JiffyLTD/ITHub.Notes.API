@@ -6,7 +6,7 @@ namespace ITHub.Notes.Services.Helpers.Mappers
 {
     internal class NoteMapper
     {
-        public static Note ToUpdate(NoteUpdateDto noteDto)
+        public static Note NoteUpdateDtoToNote(NoteUpdateDto noteDto)
         {
             var mapper = new MapperConfiguration(config => config.CreateMap<NoteUpdateDto, Note>()).CreateMapper();
             var note = mapper.Map<NoteUpdateDto, Note>(noteDto);
@@ -14,7 +14,7 @@ namespace ITHub.Notes.Services.Helpers.Mappers
             return note;
         }
 
-        public static Note ToCreate(NoteCreateDto noteDto)
+        public static Note NoteCreateDtoToNote(NoteCreateDto noteDto)
         {
             var mapper = new MapperConfiguration(config => config.CreateMap<NoteCreateDto, Note>()).CreateMapper();
             var note = mapper.Map<NoteCreateDto, Note>(noteDto);

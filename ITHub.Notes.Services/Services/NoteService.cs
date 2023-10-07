@@ -19,13 +19,8 @@ namespace ITHub.Notes.Services.Services
         {
             try
             {
-                Note note = NoteMapper.ToCreate(noteDto);
+                Note note = NoteMapper.NoteCreateDtoToNote(noteDto);
                 var createdNote = await _db.Notes.TryCreateAsync(note);
-
-                if (createdNote == null)
-                {
-                    throw new Exception("Не удалось создать заметку");
-                }
 
                 return new Response(createdNote, "Заметка успешно создана", true);
             }
@@ -40,11 +35,6 @@ namespace ITHub.Notes.Services.Services
             try
             {
                 var deletedNote = await _db.Notes.TryDeleteAsync(note);
-
-                if (deletedNote == null)
-                {
-                    throw new Exception("Не удалось удалить заметку");
-                }
 
                 return new Response(deletedNote, "Заметка успешно удалена", true);
             }
@@ -96,13 +86,8 @@ namespace ITHub.Notes.Services.Services
         {
             try
             {
-                Note note = NoteMapper.ToUpdate(noteDto);
+                Note note = NoteMapper.NoteUpdateDtoToNote(noteDto);
                 var updatedNote = await _db.Notes.TryUpdateAsync(note);
-
-                if (updatedNote == null) 
-                {
-                    throw new Exception("Не удалось обновить заметку");
-                }
 
                 return new Response(updatedNote, "Заметка успешно обновлена", true);
             }

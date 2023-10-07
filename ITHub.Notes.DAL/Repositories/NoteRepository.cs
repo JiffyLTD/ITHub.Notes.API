@@ -35,7 +35,7 @@ namespace ITHub.Notes.DAL.Repositories
 
         public async Task<List<Note>> TryGetAllAsync()
         {
-            _cache.TryGetValue("list", out List<Note>? notes);
+            _cache.TryGetValue("noteList", out List<Note>? notes);
 
             if(notes != null)
             {
@@ -46,7 +46,7 @@ namespace ITHub.Notes.DAL.Repositories
 
             if (notes != null)
             {
-                _cache.Set("list", notes, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
+                _cache.Set("noteList", notes, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
             }
 
             return notes;
