@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ITHub.Notes.Domain.DTOs;
 using ITHub.Notes.Domain.Entities;
+using ITHub.Notes.Domain.Repositories.DTOs;
 
 namespace ITHub.Notes.Services.Helpers.Mappers
 {

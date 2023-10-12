@@ -1,9 +1,10 @@
-﻿using ITHub.Notes.DAL.Data;
-using ITHub.Notes.DAL.Interfaces;
-using ITHub.Notes.DAL.Repositories;
+﻿using ITHub.Notes.DAL.DB.Context;
+using ITHub.Notes.DAL.DB.Interfaces;
+using ITHub.Notes.DAL.DB.Repositories;
+using ITHub.Notes.Domain.Repositories.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace ITHub.Notes.DAL.UnitOfWork
+namespace ITHub.Notes.DAL.DB.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

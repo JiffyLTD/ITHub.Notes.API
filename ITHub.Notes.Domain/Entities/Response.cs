@@ -1,4 +1,4 @@
-﻿namespace ITHub.Notes.Domain.DTOs
+﻿namespace ITHub.Notes.Domain.Entities
 {
     public class Response
     {

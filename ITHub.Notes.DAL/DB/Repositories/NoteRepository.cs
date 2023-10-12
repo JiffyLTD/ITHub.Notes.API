@@ -1,10 +1,10 @@
-﻿using ITHub.Notes.DAL.Data;
-using ITHub.Notes.DAL.Interfaces;
+﻿using ITHub.Notes.DAL.DB.Context;
 using ITHub.Notes.Domain.Entities;
+using ITHub.Notes.Domain.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace ITHub.Notes.DAL.Repositories
+namespace ITHub.Notes.DAL.DB.Repositories
 {
     public class NoteRepository : INoteRepository
     {
@@ -25,9 +25,11 @@ namespace ITHub.Notes.DAL.Repositories
             return result.Entity;
         }
 
-        public async Task<Note> TryDeleteAsync(Note note)
+        public async Task<Note> TryDeleteAsync(Guid id)
         {
-            var result =  _db.Notes.Remove(note);
+            Note? note = await _db.Notes.FirstOrDefaultAsync(x => x.ID == id);
+
+            var result = _db.Notes.Remove(note);
             await _db.SaveChangesAsync();
 
             return result.Entity;
@@ -37,7 +39,7 @@ namespace ITHub.Notes.DAL.Repositories
         {
             _cache.TryGetValue("noteList", out List<Note>? notes);
 
-            if(notes != null)
+            if (notes != null)
             {
                 return notes;
             }
@@ -63,7 +65,7 @@ namespace ITHub.Notes.DAL.Repositories
 
             note = await _db.Notes.FirstOrDefaultAsync(x => x.ID == id);
 
-            if(note != null)
+            if (note != null)
             {
                 _cache.Set(note.ID, note, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
             }

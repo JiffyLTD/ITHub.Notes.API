@@ -1,7 +1,8 @@
-using ITHub.Notes.DAL.Data;
-using ITHub.Notes.DAL.Interfaces;
-using ITHub.Notes.DAL.Repositories;
-using ITHub.Notes.DAL.UnitOfWork;
+using ITHub.Notes.DAL.DB.Context;
+using ITHub.Notes.DAL.DB.Interfaces;
+using ITHub.Notes.DAL.DB.Repositories;
+using ITHub.Notes.DAL.DB.UnitOfWork;
+using ITHub.Notes.Domain.Repositories.Interfaces;
 using ITHub.Notes.Services.Interfaces;
 using ITHub.Notes.Services.Services;
 using Microsoft.EntityFrameworkCore;

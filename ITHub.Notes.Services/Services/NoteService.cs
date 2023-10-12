@@ -1,6 +1,6 @@
-﻿using ITHub.Notes.DAL.Interfaces;
-using ITHub.Notes.Domain.DTOs;
+﻿using ITHub.Notes.DAL.DB.Interfaces;
 using ITHub.Notes.Domain.Entities;
+using ITHub.Notes.Domain.Repositories.DTOs;
 using ITHub.Notes.Services.Helpers.Mappers;
 using ITHub.Notes.Services.Interfaces;
 
@@ -30,11 +30,11 @@ namespace ITHub.Notes.Services.Services
             }
         }
 
-        public async Task<Response> DeleteAsync(Note note)
+        public async Task<Response> DeleteAsync(Guid id)
         {
             try
             {
-                var deletedNote = await _db.Notes.TryDeleteAsync(note);
+                var deletedNote = await _db.Notes.TryDeleteAsync(id);
 
                 return new Response(deletedNote, "Заметка успешно удалена", true);
             }

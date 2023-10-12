@@ -1,10 +1,8 @@
-﻿using ITHub.Notes.Domain.DTOs;
-using ITHub.Notes.Domain.Entities;
+﻿using ITHub.Notes.Domain.Repositories.DTOs;
 using ITHub.Notes.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ITHub.Notes.API.Contollers
+namespace ITHub.Notes.API.Controllers
 {
     [Route("api/v1")]
     [ApiController]
@@ -35,7 +33,7 @@ namespace ITHub.Notes.API.Contollers
         {
             var result = await _noteService.GetAllAsync();
 
-            if(result.Status == false)
+            if (result.Status == false)
             {
                 return Results.BadRequest(result);
             }
@@ -70,9 +68,9 @@ namespace ITHub.Notes.API.Contollers
         }
 
         [HttpDelete("note")]
-        public async Task<IResult> Delete(Note note)
+        public async Task<IResult> Delete(Guid id)
         {
-            var result = await _noteService.DeleteAsync(note);
+            var result = await _noteService.DeleteAsync(id);
 
             if (result.Status == false)
             {

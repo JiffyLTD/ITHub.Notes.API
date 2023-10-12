@@ -1,6 +1,6 @@
 ﻿using ITHub.Notes.Domain.Entities;
 
-namespace ITHub.Notes.DAL.Interfaces
+namespace ITHub.Notes.Domain.Repositories.Interfaces
 {
     public interface INoteRepository
     {
@@ -8,6 +8,6 @@ namespace ITHub.Notes.DAL.Interfaces
         public Task<Note> TryGetByIdAsync(Guid id);
         public Task<Note> TryCreateAsync(Note note);
         public Task<Note> TryUpdateAsync(Note note);
-        public Task<Note> TryDeleteAsync(Note note);
+        public Task<Note> TryDeleteAsync(Guid id);
     }
 }

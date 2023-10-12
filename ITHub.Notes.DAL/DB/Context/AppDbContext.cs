@@ -1,7 +1,7 @@
 ﻿using ITHub.Notes.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITHub.Notes.DAL.Data
+namespace ITHub.Notes.DAL.DB.Context
 {
     public class AppDbContext : DbContext
     {
@@ -14,7 +14,7 @@ namespace ITHub.Notes.DAL.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Note firstNote = new ("Первая заметка", "Заметка была создана при инициализации бд");
+            Note firstNote = new("Первая заметка", "Заметка была создана при инициализации бд");
 
             modelBuilder.Entity<Note>().HasData(firstNote);
         }
